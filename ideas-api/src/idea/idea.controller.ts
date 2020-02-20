@@ -4,7 +4,7 @@ import {IdeaService} from './idea.service';
 import {IdeaDto} from './idea.dto';
 import {ValidationPipe} from '../shared/validation.pipe';
 
-@Controller('idea')
+@Controller('api/idea')
 export class IdeaController {
     private logger = new Logger('IdeaController');
 

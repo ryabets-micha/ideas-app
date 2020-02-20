@@ -3,6 +3,7 @@ import {TypeOrmModule} from '@nestjs/typeorm';
 import {APP_FILTER, APP_INTERCEPTOR} from '@nestjs/core';
 
 import { IdeaModule } from './idea/idea.module';
+import { UserModule } from './user/user.module';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -10,7 +11,7 @@ import {HttpErrorFilter} from './shared/http-error.filter';
 import {LoggingInterceptor} from './shared/logging.interceptor';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), IdeaModule],
+  imports: [TypeOrmModule.forRoot(), IdeaModule, UserModule],
   controllers: [AppController],
   providers: [
     AppService,
