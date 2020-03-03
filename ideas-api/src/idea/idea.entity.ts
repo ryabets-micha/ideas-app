@@ -2,7 +2,7 @@ import {
     BaseEntity,
     Column,
     CreateDateColumn,
-    Entity,
+    Entity, JoinTable, ManyToMany,
     ManyToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn
@@ -28,4 +28,12 @@ export class IdeaEntity extends BaseEntity {
 
     @ManyToOne(type => UserEntity, author => author.ideas)
     author: UserEntity;
+
+    @ManyToMany(type => UserEntity, { cascade: true })
+    @JoinTable()
+    upvotes: UserEntity[];
+
+    @ManyToMany(type => UserEntity, { cascade: true })
+    @JoinTable()
+    downvotes: UserEntity[];
 }
